@@ -1,6 +1,6 @@
 import * as Hapi from 'hapi';
 import * as Boom from 'boom';
-import { ApplicationError } from '../errors';
+import { ApplicationError, ItemNotFoundError } from '../errors';
 import logger from '../utils/logger';
 
 export const errorMiddleware = (server: Hapi.Server) => {
@@ -13,7 +13,9 @@ export const errorMiddleware = (server: Hapi.Server) => {
 
         let boom;
 
-        if (response instanceof ApplicationError) {
+        if (response instanceof ItemNotFoundError) {
+            boom = Boom.notFound(response.message, response.data);
+        } else if (response instanceof ApplicationError) {
             boom = Boom.badRequest(response.message, response.data);
         } else {
             boom = response;

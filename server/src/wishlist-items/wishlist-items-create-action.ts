@@ -1,7 +1,7 @@
 import * as Joi from 'joi';
 import { IWishlistItem } from '../entities/wishlist-item';
 import { Db } from '../db/index';
-import { ValidationError } from '../errors/index';
+import { ValidationError, ItemNotFoundError } from '../errors/index';
 
 const validator = {
     suggestion: Joi.string().required(),
@@ -17,6 +17,8 @@ const validator = {
 
 const exec = async (params: IWishlistItem) => {
     const vr = Joi.validate(params, validator);
+
+    throw new ItemNotFoundError('test');
 
     if (vr.error) {
         throw ValidationError.fromJoi(vr.error);

@@ -17,7 +17,7 @@ import wishlist from '../wishlist/wishlist';
 const MODULE_NAME = 'app';
 
 angular.module(MODULE_NAME, ['ngMaterial', 'ngMessages', uiRouter, search, wishlist])
-  .config(($stateProvider, $locationProvider, $mdThemingProvider) => {
+  .config(($stateProvider, $locationProvider, $mdThemingProvider, $httpProvider) => {
     $mdThemingProvider.definePalette('black', {
       '50': '000000',
       '100': '000000',
@@ -43,6 +43,66 @@ angular.module(MODULE_NAME, ['ngMaterial', 'ngMessages', uiRouter, search, wishl
       redirectTo: 'search',
       component: 'app'
     });
+
+    $httpProvider.interceptors.push(function ($q, $injector, $log, $timeout) {
+
+      function showErrorIfNotHandled(response, handler) {
+        $timeout(function () {
+          if (!response.handled) {
+            handler();
+          }
+        });
+      }
+
+      function getErrorHandler(response) {
+        let serverMessage;
+        if (response.status === 401) {
+          serverMessage = "Unauthorized!";
+        }
+
+        if (response.status === 403) {
+          serverMessage = "Forbidden!"
+        }
+
+        if (response.status === 400) {
+          serverMessage = "Bad input data!";
+        }
+
+        if (response.status === 404) {
+          serverMessage = "Resource not found!";
+        }
+
+        if (response.status >= 500) {
+          serverMessage = 'Ups somenthing went wrong :(';
+        }
+
+        serverMessage = serverMessage || 'Unknown error!';
+
+        return function () {
+          const msg = $injector.get('$mdDialog').alert({
+            title: 'Error',
+            textContent: serverMessage,
+            ok: 'Close'
+          });
+          $injector.get('$mdDialog').show(msg);
+        };
+      }
+
+      return {
+        responseError: function (response) {
+          $log.error('***** HTTP RESPONSE ERROR ****');
+          $log.error(response);
+          $log.error('******************************');
+
+          var errorHandler = getErrorHandler(response);
+          showErrorIfNotHandled(response, errorHandler);
+
+          return $q.reject(response);
+        }
+
+      };
+    });
+
   })
   .component('app', AppComponent);
 
