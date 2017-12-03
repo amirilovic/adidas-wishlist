@@ -1,0 +1,25 @@
+<section flex layout="column" layout-fill>
+    <md-toolbar layout="row" class="md-toolbar-tools">
+        <md-button class="md-icon-button" hide-gt-md ng-click="app.toggleLeft()" aria-label="Toggle Menu">
+            <md-icon md-font-set="material-icons">menu</md-icon>
+        </md-button>
+        <span flex></span>
+        <h1>Search</h1>
+        <span flex></span>
+    </md-toolbar>
+
+    <md-input-container md-no-float class="md-icon-right md-block" layout="row">
+        <md-icon md-font-set="material-icons">search</md-icon>
+        <input ng-model="$ctrl.searchInput" ng-model-options="{ debounce: 300 }" placeholder="Type in your search...">
+    </md-input-container>
+
+    <md-content flex id="content" layout-padding>
+        <md-list flex>
+            <md-list-item class="md-3-line" ng-repeat="product in $ctrl.searchResult" ng-click="$ctrl.navigate(product)">
+                <product-suggestion product="product" on-toggle-wishlist="$ctrl.toggleWishlist(product)" flex></product-suggestion>
+            </md-list-item>
+        </md-list>
+
+    </md-content>
+
+</section>

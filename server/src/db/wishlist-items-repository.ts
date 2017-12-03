@@ -1,5 +1,7 @@
 import { IWishlistItem } from '../entities/wishlist-item';
 import { ItemNotFoundError, ValidationError, UnexpectedError } from '../errors/index';
+import * as uniqid from 'uniqid';
+
 
 
 const col = [];
@@ -26,7 +28,7 @@ export class WishlistItemsRepository {
 
         const newItem = { ...item };
 
-        newItem.id = item.url;
+        newItem.id = uniqid();
 
         this.col.push(newItem);
 

@@ -1,0 +1,15 @@
+<div layout="row" class="product-suggestion" flex>
+    <img class="product-image" ng-src="{{$ctrl.product.image}}" alt="{{$ctrl.product.suggestion}}" />
+    <div layout="column" class="product-details">
+        <h3 class="product-suggestion-field">{{$ctrl.product.suggestion}}</h3>
+        <h4 class="product-subtitle">{{$ctrl.product.subTitle}}</h4>
+        <div class="product-price">{{$ctrl.formattedPrice}}</div>
+        <div layout="row">
+            <rating value="$ctrl.product.rating"></rating>
+            <span class="product-reviews">{{$ctrl.product.reviews}}</span>
+        </div>
+    </div>
+    <div flex></div>
+    <md-checkbox ng-model="$ctrl.product.inWishlist" aria-label="In wishlist" ng-click="$ctrl.toggleWishlist(); $event.stopPropagation();">
+    </md-checkbox>
+</div>

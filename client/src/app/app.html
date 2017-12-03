@@ -1,0 +1,24 @@
+<div layout-fill layout="row" ng-cloak="" ng-app="Adidas Wishlist">
+  <md-sidenav class="md-sidenav-left" class="md-whiteframe-4dp" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-content layout-padding="">
+      <div layout="column" layout-align="start center">
+        <div class="logo logo-big logo-black"></div>
+        <h1>Wishlist App</h1>
+      </div>
+      <md-divider></md-divider>
+      <div layout="column">
+        <md-button ui-sref="search" ng-click="app.toggleLeft()">
+          <md-icon md-font-set="material-icons">search</md-icon>
+          Search
+        </md-button>
+        <md-button ui-sref="wishlist" ng-click="app.toggleLeft()">
+          <md-icon md-font-set="material-icons">card_giftcard</md-icon>
+          Wishlist
+        </md-button>
+      </div>
+    </md-content>
+  </md-sidenav>
+
+  <ui-view flex></ui-view>
+ 
+</div>

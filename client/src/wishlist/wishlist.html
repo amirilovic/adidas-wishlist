@@ -1,0 +1,17 @@
+<section flex layout="column" layout-fill>
+    <md-toolbar layout="row" class="md-toolbar-tools">
+        <md-button class="md-icon-button" hide-gt-md ng-click="app.toggleLeft()" aria-label="Toggle Menu">
+            <md-icon md-font-set="material-icons">menu</md-icon>
+        </md-button>
+        <span flex></span>
+        <h1>Wishlist</h1>
+        <span flex></span>
+    </md-toolbar>
+    <md-content flex id="content" layout-padding>
+        <md-list flex>
+            <md-list-item class="md-3-line" ng-repeat="product in $ctrl.wishlist" ng-click="$ctrl.navigate(product)">
+                <product-suggestion product="product" on-toggle-wishlist="$ctrl.toggleWishlist(product)" flex></product-suggestion>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</section>

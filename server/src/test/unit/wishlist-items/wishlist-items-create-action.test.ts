@@ -39,7 +39,7 @@ lab.experiment('wishlistItemsCreateAction', () => {
         Code.expect(item.separatedStandartPrice).to.equal(params.separatedStandartPrice);
         Code.expect(item.subTitle).to.equal(params.subTitle);
         Code.expect(item.isPreorder).to.equal(params.isPreorder);
-        Code.expect(item.id).to.equal(item.url);
+        Code.expect(item.id).not.to.be.empty();
     });
 
     lab.test('Should reject invalid IWishlistItem', async () => {

@@ -1,0 +1,22 @@
+.logo {
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.logo-small {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-big {
+    width: 160px;
+    height: 120px;
+}
+
+.logo-black {
+    background-image: url('/img/adidas-logo-black.png');
+}
+
+.logo-white {
+    background-image: url('/img/adidas-logo-white.png');
+}

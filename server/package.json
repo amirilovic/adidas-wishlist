@@ -7,7 +7,7 @@
     "start": "node_modules/.bin/npm-run-all compile up",
     "compile": "./node_modules/.bin/tsc",
     "up": "node dist/index.js",
-    "test": "NODE_ENV=test ./node_modules/.bin/lab -v -I '__core-js_shared__' dist/test/ && echo Test Passed ❤",
+    "test": "NODE_ENV=test ./node_modules/.bin/lab --leaks -v -I '__core-js_shared__' dist/test/ && echo Test Passed ❤",
     "test-watch-js": "./node_modules/.bin/nodemon --exec \"npm test\"",
     "test-watch": "node_modules/.bin/npm-run-all --parallel compile-watch test-watch-js",
     "lint": "./node_modules/.bin/tslint 'src/**/*.ts' && echo Lint Passed ❤",
@@ -29,6 +29,7 @@
     "inert": "^4.2.1",
     "joi": "^13.0.1",
     "rollbar": "^2.3.1",
+    "uniqid": "^4.1.1",
     "vision": "^4.1.0"
   },
   "devDependencies": {

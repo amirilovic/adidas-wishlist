@@ -9,6 +9,7 @@ const server = new Server();
 
 server.connection({
   port: config.get<number>('app.port'),
+  routes: { cors: true },
 });
 
 // attach routes here
