@@ -14,12 +14,14 @@
     </md-input-container>
 
     <md-content flex id="content" layout-padding>
-        <md-list flex>
+        <md-list flex ng-if="$ctrl.searchResult.length > 0">
             <md-list-item class="md-3-line" ng-repeat="product in $ctrl.searchResult" ng-click="$ctrl.navigate(product)">
                 <product-suggestion product="product" on-toggle-wishlist="$ctrl.toggleWishlist(product)" flex></product-suggestion>
             </md-list-item>
         </md-list>
-
+        <div flex ng-if="$ctrl.searchResult.length === 0" class="empty-message">
+            <h3>☝️ Find something nice for yourself</h3>
+        </div>
     </md-content>
 
 </section>

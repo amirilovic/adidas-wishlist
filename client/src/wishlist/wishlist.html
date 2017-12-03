@@ -8,10 +8,14 @@
         <span flex></span>
     </md-toolbar>
     <md-content flex id="content" layout-padding>
-        <md-list flex>
+        <md-list flex ng-if="$ctrl.wishlist.length > 0">
             <md-list-item class="md-3-line" ng-repeat="product in $ctrl.wishlist" ng-click="$ctrl.navigate(product)">
                 <product-suggestion product="product" on-toggle-wishlist="$ctrl.toggleWishlist(product)" flex></product-suggestion>
             </md-list-item>
         </md-list>
+
+        <div flex ng-if="$ctrl.wishlist.length === 0" class="empty-message">
+            <h3>👈 🔍 Go to search and wish for something 🎁 😀</h3>
+        </div>
     </md-content>
 </section>

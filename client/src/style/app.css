@@ -1,3 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 @import "./logo.css";
+
+.empty-message {
+    color: gray;
+    font-size: 16px;
+    text-align: center;
+}

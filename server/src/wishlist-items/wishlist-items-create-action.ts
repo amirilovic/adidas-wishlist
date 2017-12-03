@@ -18,8 +18,6 @@ const validator = {
 const exec = async (params: IWishlistItem) => {
     const vr = Joi.validate(params, validator);
 
-    throw new ItemNotFoundError('test');
-
     if (vr.error) {
         throw ValidationError.fromJoi(vr.error);
     }
