@@ -83,13 +83,14 @@ $ npm install
 
 Start the server
 ```
-$ npm start
+$ NODE_ENV=development APP_NAME=adidas-wishlist-server APP_PORT=3030 LOG_LEVEL=info npm start
 ```
 
-Run tests
+Run tests (make sure code is compiled (`npm run compile`) before running tests)
 ```
-$ npm test
+$ NODE_ENV=test APP_NAME=adidas-wishlist-server APP_PORT=3030 LOG_LEVEL=info npm test
 ```
+
 
 ### Debugging the Server
 When run with Docker server exposes port `9229` for debugging, you can use debugger from IDE or Chrome Dev Tools to attach to the server. TypeScript compiler creates source maps, so you should be able to jump straight to TypeScript source code.
