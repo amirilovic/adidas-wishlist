@@ -9,6 +9,8 @@ help:
 	@echo "  stop          Stop app"
 	@echo "  clean         Clean all containers"
 	@echo "  logs          View container logs"
+	@echo "  test          Runs all tests"
+	@echo "  test-watch    Runs all tests in watch mode"
 	
 start:
 	docker-compose up -d

@@ -14,9 +14,9 @@
 }
 
 .logo-black {
-    background-image: url('/img/adidas-logo-black.png');
+    background-image: url('../public/img/adidas-logo-black.png');
 }
 
 .logo-white {
-    background-image: url('/img/adidas-logo-white.png');
+    background-image: url('../public/img/adidas-logo-white.png');
 }
