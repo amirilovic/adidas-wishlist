@@ -13,7 +13,7 @@ help:
 	@echo "  test-watch    Runs all tests in watch mode"
 	
 start:
-	docker-compose up -d
+	docker-compose up
 
 stop:
 	@docker-compose stop

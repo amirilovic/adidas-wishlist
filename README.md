@@ -22,6 +22,8 @@ Once you get backend up and running you can access API docs at http://localhost/
 
 ![Server API Docs](./docs-assets/server-api-docs.png "Server API Docs")
 
+**NOTE: Server stores all data in memory, so once server is restarted all wishlist data is lost.**
+
 ### Requirements
 You can run the app on any machine that has Node 8.4 installed, but recommended way of running the app is with [Docker](https://docs.docker.com/engine/installation/). At the time of writing latest version was 17.09.0.
 
@@ -45,9 +47,16 @@ Start the server:
 ```
 $ make start
 ```
-Server will should be up and listening on port `3030`. If you navigate to http://localhost:3030/documentation you should be able to see above mentioned API documentation.
 
-For convinience `make` is used to create shortcut commands for `docker-compose`. You can use `make` inside `server` folder of the repository:
+First time you run the `make start` command it will do `npm install`, so it will take some time for the server to start. Server will be fully functional when you see line like this:
+
+```
+api_1  | {"name":"adidas-wishlist-server","hostname":"9815fc1635d6","pid":189,"level":30,"msg":"server started at port: 3030 with env: development","time":"2017-12-04T07:31:10.613Z","v":0}
+```
+
+Server will be up and listening on port `3030`. If you navigate to http://localhost:3030/documentation you should be able to see API documentation mentioned above.
+
+Please not that `make` is used just for convenience to create shortcut commands for `docker-compose`. Here is the full list of make commands you can run from inside `server` folder of the repo:
 
 ```
 $ make
@@ -121,4 +130,4 @@ Start the development server
 $ npm start
 ```
 
-Navigate browser to: http://localhost:8080/
+To access the app please navigate browser to: http://localhost:8080/
