@@ -35,6 +35,11 @@ Navigate to server folder:
 ```
 $ cd adidas-wishlist/server
 ```
+Copy the configuration file:
+
+```
+$ cp .env.example .env
+```
 
 Start the server:
 ```
