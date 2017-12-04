@@ -4,11 +4,11 @@ services:
   api:
     build:
       context: .
+      dockerfile: Dockerfile.dev
     volumes:
       - .:/app
     env_file:
       - .env
-    command: npm run start-dev
     ports:
       - "3030:3030"
       - "9229:9229"

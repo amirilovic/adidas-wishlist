@@ -1,5 +1,4 @@
 import * as config from 'config';
-import errorHandler from '../utils/error-handler';
 import { Request, ReplyNoContinue, RouteConfiguration } from 'hapi';
 
 const API_PATH = '/api/1.0';
